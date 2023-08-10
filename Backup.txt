@@ -1,0 +1,20 @@
+// LEFT TO RIGHT
+        if (asteroidEntities[i].transform.position.x > Engine::screenWidth + (ASTEROID_SCALE * ASTEROID_OFFSET_MULTIPLIER))
+        {
+            asteroidEntities[i].transform.position = RayDefs::GetVector2(RayDefs::ReverseFloat(asteroidEntities[i].transform.position.x) + Engine::screenWidth - (ASTEROID_SCALE * ASTEROID_OFFSET_MULTIPLIER), asteroidEntities[i].transform.position.y);
+        }
+        // RIGHT TO LEFT
+        else if (asteroidEntities[i].transform.position.x < 0.0f - (ASTEROID_SCALE * ASTEROID_OFFSET_MULTIPLIER)) 
+        {
+            asteroidEntities[i].transform.position = RayDefs::GetVector2(asteroidEntities[i].transform.position.x + Engine::screenWidth + (ASTEROID_SCALE * ASTEROID_OFFSET_MULTIPLIER), asteroidEntities[i].transform.position.y);
+        }
+        // BOTTOM TO TOP
+        else if (asteroidEntities[i].transform.position.y < 0.0f - (ASTEROID_SCALE * ASTEROID_OFFSET_MULTIPLIER)) // why is Y flipped?
+        {
+            asteroidEntities[i].transform.position = RayDefs::GetVector2(asteroidEntities[i].transform.position.x, asteroidEntities[i].transform.position.y + Engine::screenHeight + (ASTEROID_SCALE * ASTEROID_OFFSET_MULTIPLIER));
+        }
+        // TOP TO BOTTOM
+        else if (asteroidEntities[i].transform.position.y > Engine::screenHeight + (ASTEROID_SCALE * ASTEROID_OFFSET_MULTIPLIER))
+        {
+            asteroidEntities[i].transform.position = RayDefs::GetVector2(asteroidEntities[i].transform.position.x, -asteroidEntities[i].transform.position.y + Engine::screenHeight - (ASTEROID_SCALE * ASTEROID_OFFSET_MULTIPLIER));
+        }
